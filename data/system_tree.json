@@ -1,7 +1,7 @@
 {
   "root": {
     "id": "root-corethink-plan",
-    "name": "CoreThink DevRel/Growth Projection Plan",
+    "name": "CoreThink Growth Projection Plan",
     "type": "root"
   },
   "branches": [
@@ -55,7 +55,7 @@
     },
     {
       "id": "branch-deliverable-entities",
-      "name": "Deliverable Entities",
+      "name": "Proposal Map",
       "type": "branch",
       "entity_ids": [
         "corethink-hybrid-strategy",

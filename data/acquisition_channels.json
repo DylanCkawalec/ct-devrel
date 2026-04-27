@@ -3,41 +3,41 @@
     {
       "id": "docs-tutorials",
       "name": "Technical documentation and tutorials",
-      "audience": "Local-first builders and agentic coding teams",
+      "audience": "Builders who care about privacy, cost, and coding workflows",
       "action": "Publish practical implementation guides and runbook-style docs.",
-      "output": "Higher activation and trust in strategy claims.",
+      "output": "More active users and stronger trust in the product story.",
       "primary_metrics": ["docs_shipped", "activated_builders", "qualified_opportunities"]
     },
     {
       "id": "oss-integrations",
-      "name": "Open-source and local-first ecosystem integrations",
-      "audience": "Tooling maintainers and engineer-operators",
+      "name": "Open-source integrations",
+      "audience": "Tool maintainers and hands-on engineering teams",
       "action": "Ship integration examples with OpenClaw and adjacent tooling.",
-      "output": "Faster adoption in existing workflows.",
+      "output": "Faster adoption inside tools teams already use.",
       "primary_metrics": ["partner_integrations", "activated_builders", "pipeline_influenced"]
     },
     {
       "id": "bay-area-field-motion",
       "name": "Bay Area meetups, founder dinners, and design-partner sessions",
       "audience": "Early design partners and technical decision makers",
-      "action": "Run field events and targeted design-partner workshops.",
-      "output": "Higher quality opportunities and pilot pipeline.",
+      "action": "Run local events and targeted design-partner workshops.",
+      "output": "Higher-quality sales opportunities and more pilot candidates.",
       "primary_metrics": ["partner_meetings", "qualified_opportunities", "paid_pilots"]
     },
     {
       "id": "strategic-partnership-outreach",
       "name": "Strategic partnership outreach",
       "audience": "Platform and tooling partners",
-      "action": "Develop co-selling and co-marketing motions.",
+      "action": "Develop joint selling and joint marketing plans.",
       "output": "Expanded distribution and enterprise access.",
       "primary_metrics": ["partner_integrations", "pipeline_influenced", "annual_contracts"]
     },
     {
       "id": "web3-security-motion",
-      "name": "Web3 security and smart-contract audit ecosystem",
+      "name": "Web3 security and smart-contract audit teams",
       "audience": "Security auditors and digital-asset infrastructure teams",
       "action": "Publish security-oriented reasoning workflows and benchmarks.",
-      "output": "Vertical credibility with security buyers.",
+      "output": "Credibility with security buyers.",
       "primary_metrics": ["qualified_opportunities", "paid_pilots", "annual_contracts"]
     },
     {
@@ -45,15 +45,15 @@
       "name": "Enterprise modernization and reasoning workflows",
       "audience": "Large-codebase modernization teams",
       "action": "Demonstrate migration planning and controlled reasoning workflows.",
-      "output": "Higher contract value and enterprise conversion.",
+      "output": "Higher contract value and more annual contracts.",
       "primary_metrics": ["qualified_opportunities", "annual_contracts", "cumulative_bookings"]
     },
     {
       "id": "content-led-devrel",
-      "name": "Content-led DevRel (CoreThink for ___ guides)",
+      "name": "Developer guides by use case",
       "audience": "Developers evaluating adoption pathways",
-      "action": "Publish repeatable verticalized playbooks.",
-      "output": "Clear top-of-funnel education and intent capture.",
+      "action": "Publish repeatable guides for each target use case.",
+      "output": "Clear education and stronger buying intent.",
       "primary_metrics": ["docs_shipped", "activated_builders", "pipeline_influenced"]
     },
     {
@@ -61,7 +61,7 @@
       "name": "Benchmark and evaluation demos",
       "audience": "Technical evaluators and skeptical operators",
       "action": "Publish reproducible demos with explicit assumptions.",
-      "output": "Improved technical credibility in eval cycles.",
+      "output": "Stronger technical credibility during evaluation.",
       "primary_metrics": ["demos_delivered", "qualified_opportunities", "paid_pilots"]
     },
     {
@@ -74,9 +74,9 @@
     },
     {
       "id": "direct-abm",
-      "name": "Direct ABM-style outreach",
+      "name": "Direct outreach to target companies",
       "audience": "Qualified target accounts",
-      "action": "Run focused account outreach with persona-specific pitches.",
+      "action": "Run focused outreach with role-specific messages.",
       "output": "Consistent pilot and contract progression.",
       "primary_metrics": ["qualified_opportunities", "paid_pilots", "annual_contracts"]
     }

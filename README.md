@@ -1,18 +1,18 @@
-# CoreThink Strategy
+# CoreThink Strategy OS
 
-Static strategy plan (no backend). Numbers live in `data/*.json`.
+![12-month sales and growth plan](public/readme-banner.png)
 
-## Clone, start, view
+Interactive **12-month sales and growth plan**: pricing, acquisition, quarterly targets, budget, and metrics. Static site only—data lives in `data/*.json`.
 
-`run.sh` and `package.json` live in **this** folder (`corethink-strategy-os`). If you are in a parent directory (e.g. `corethink`), run `cd corethink-strategy-os` first.
+## Quick start
+
+From this folder (`corethink-strategy-os`):
 
 ```bash
 git clone https://github.com/DylanCkawalec/ct-devrel.git
-cd ct-devrel                    # or: cd corethink/corethink-strategy-os
-chmod +x run.sh                 # once, if needed
+cd ct-devrel
+chmod +x run.sh   # once, if needed
 ./run.sh
 ```
 
-That installs dependencies, checks your setup, then starts the dev server (Node 20+ required). Click **View Plan**, then **Strategy** in the nav or open **`http://127.0.0.1:3000/#/strategy`** (match host/port from the script output).
-
-**Manual start:** `npm install && npm run dev` in this same folder.
+Requires **Node 20+**. Opens the dev server; use **View Plan**, then explore **Home** (executive summary) and the other tabs. Or run `npm install && npm run dev` manually.

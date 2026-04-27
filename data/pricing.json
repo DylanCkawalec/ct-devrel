@@ -5,7 +5,7 @@
       "name": "Community Entry",
       "price_range": "Free",
       "duration": "Always-on",
-      "purpose": "Top-of-funnel adoption, trust, and ecosystem credibility.",
+      "purpose": "Free entry that builds trust and shows practical value.",
       "includes": [
         "Free docs",
         "Starter repos",
@@ -13,21 +13,21 @@
         "Tutorials",
         "Benchmark cookbooks"
       ],
-      "conversion_goal": "Convert activated builders into qualified opportunities"
+      "conversion_goal": "Turn active builders into qualified sales opportunities"
     },
     {
       "id": "design-partner-pilot",
       "name": "Design-Partner Pilot",
       "price_range": "$20,000-$30,000",
       "duration": "6-8 weeks",
-      "purpose": "Validate use case, collect product feedback, and prove business ROI.",
+      "purpose": "Validate the use case, collect product feedback, and prove business value.",
       "includes": [
         "Joint success criteria",
         "Pilot implementation support",
         "Weekly technical reviews",
-        "Outcome and conversion recommendation"
+        "Outcome and next-step recommendation"
       ],
-      "conversion_goal": "Convert validated pilots into annual contracts"
+      "conversion_goal": "Turn validated pilots into annual contracts"
     },
     {
       "id": "annual-production-contract",
@@ -41,7 +41,21 @@
         "Security and governance patterns",
         "Expansion pathways by use case"
       ],
-      "conversion_goal": "Drive renewal, expansion, and referenceable logos"
+      "conversion_goal": "Drive renewals, expansion, and customer references"
+    },
+    {
+      "id": "strategic-enterprise",
+      "name": "Strategic Enterprise",
+      "price_range": "$150,000-$300,000+ custom",
+      "duration": "Custom",
+      "purpose": "Support larger deployments with security, governance, compliance, private environment, SSO, or deeper field-engineering requirements.",
+      "includes": [
+        "Security and compliance review",
+        "Governance and deployment planning",
+        "Private environment or SSO requirements",
+        "Executive and roadmap alignment"
+      ],
+      "conversion_goal": "Support larger opportunities after pilots and annual contracts are validated"
     }
   ],
   "notes": [

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type TransitionEvent } from 'react'
-import { NavLink, Navigate, Route, Routes } from 'react-router-dom'
+import { NavLink, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { AcquisitionPage } from './pages/Acquisition'
 import { BudgetPage } from './pages/Budget'
 import { EntitiesPage } from './pages/Entities'
@@ -7,7 +7,6 @@ import { GrowthPage } from './pages/Growth'
 import { HomePage } from './pages/Home'
 import { MetricsPage } from './pages/Metrics'
 import { PricingPage } from './pages/Pricing'
-import { SearchPage } from './pages/Search'
 import { StrategyPage } from './pages/Strategy'
 import { SystemTreePage } from './pages/SystemTree'
 
@@ -23,7 +22,6 @@ const navItems = [
   { to: '/budget', label: 'Budget' },
   { to: '/entities', label: 'Entities' },
   { to: '/system-tree', label: 'System Tree' },
-  { to: '/search', label: 'Search' },
 ]
 
 type LandingPhase = 'intro' | 'exit' | 'done'
@@ -38,10 +36,15 @@ function readLandingDismissed(): boolean {
 }
 
 function App() {
+  const location = useLocation()
   const [landingPhase, setLandingPhase] = useState<LandingPhase>(() =>
     readLandingDismissed() ? 'done' : 'intro',
   )
+  const [navGuideActive, setNavGuideActive] = useState(false)
+  const [navCueIndex, setNavCueIndex] = useState<number | null>(null)
   const focusMainAfterDismiss = useRef(false)
+  const navGuideTimeoutRef = useRef<number | undefined>(undefined)
+  const navCueTimeoutRef = useRef<number | undefined>(undefined)
 
   useEffect(() => {
     if (landingPhase !== 'done' || !focusMainAfterDismiss.current) return
@@ -59,6 +62,18 @@ function App() {
       document.body.style.overflow = ''
     }
   }, [landingPhase])
+
+  useEffect(
+    () => () => {
+      if (navGuideTimeoutRef.current !== undefined) {
+        window.clearTimeout(navGuideTimeoutRef.current)
+      }
+      if (navCueTimeoutRef.current !== undefined) {
+        window.clearTimeout(navCueTimeoutRef.current)
+      }
+    },
+    [],
+  )
 
   const dismissLanding = useCallback(() => {
     try {
@@ -94,6 +109,24 @@ function App() {
       /* ignore */
     }
     setLandingPhase('intro')
+  }, [])
+
+  const pulseNavGuide = useCallback(() => {
+    if (navGuideTimeoutRef.current !== undefined) {
+      window.clearTimeout(navGuideTimeoutRef.current)
+    }
+    setNavGuideActive(false)
+    window.requestAnimationFrame(() => setNavGuideActive(true))
+    navGuideTimeoutRef.current = window.setTimeout(() => setNavGuideActive(false), 1700)
+  }, [])
+
+  const cueNextTab = useCallback((index: number) => {
+    if (navCueTimeoutRef.current !== undefined) {
+      window.clearTimeout(navCueTimeoutRef.current)
+    }
+    setNavCueIndex(null)
+    window.requestAnimationFrame(() => setNavCueIndex((index + 1) % navItems.length))
+    navCueTimeoutRef.current = window.setTimeout(() => setNavCueIndex(null), 1100)
   }, [])
 
   const layoutSurfaceClass =
@@ -144,7 +177,13 @@ function App() {
 
       <div className={layoutSurfaceClass}>
         <header className="header">
-          <div className="brand-row">
+          <button
+            type="button"
+            className="brand-row brand-row-button"
+            onClick={pulseNavGuide}
+            aria-label="Show proposal reading order"
+            title="Show proposal reading order"
+          >
             <img
               src="/corethink-Bh1OL6oM.svg"
               alt=""
@@ -156,7 +195,7 @@ function App() {
               <p className="eyebrow">CoreThink / OpenClaw</p>
               <h1 className="title">12-month sales and growth plan</h1>
             </div>
-          </div>
+          </button>
           <p className="muted">
             Pricing, customer acquisition, and quarter-by-quarter growth targets.
           </p>
@@ -169,13 +208,23 @@ function App() {
           ) : null}
         </header>
 
-        <nav className="nav">
-          {navItems.map((item) => (
+        <nav className={navGuideActive ? 'nav nav-guide' : 'nav'}>
+          {navItems.map((item, index) => (
             <NavLink
               key={item.to}
               to={item.to}
               end={item.to === '/'}
-              className={({ isActive }) => (isActive ? 'tab active' : 'tab')}
+              onClick={(event) => {
+                if (location.pathname === item.to) {
+                  event.preventDefault()
+                  cueNextTab(index)
+                }
+              }}
+              className={({ isActive }) =>
+                [isActive ? 'tab active' : 'tab', navCueIndex === index ? 'tab-next-cue' : '']
+                  .filter(Boolean)
+                  .join(' ')
+              }
             >
               {item.label}
             </NavLink>
@@ -193,7 +242,6 @@ function App() {
             <Route path="/budget" element={<BudgetPage />} />
             <Route path="/entities" element={<EntitiesPage />} />
             <Route path="/system-tree" element={<SystemTreePage />} />
-            <Route path="/search" element={<SearchPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

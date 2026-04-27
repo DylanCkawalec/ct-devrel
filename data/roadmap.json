@@ -2,40 +2,40 @@
   "quarters": [
     {
       "quarter": "Q1",
-      "focus": "Foundation and first design-partner proof",
+      "focus": "Foundation and first design-partner evidence",
       "items": [
         "Ship core strategy docs and onboarding guides",
-        "Launch first two ecosystem integrations",
+        "Launch first two partner-tool integrations",
         "Close first paid pilot",
-        "Establish metrics instrumentation and CRM tracking"
+        "Set up metrics and CRM tracking"
       ]
     },
     {
       "quarter": "Q2",
-      "focus": "Scale-out and channel coverage",
+      "focus": "More guides and stronger channel coverage",
       "items": [
         "Expand CoreThink-for guides across target segments",
-        "Run Bay Area partner field motion",
+        "Run Bay Area partner field work",
         "Convert one pilot into first annual contract",
-        "Increase benchmark and demo throughput"
+        "Increase benchmark demos"
       ]
     },
     {
       "quarter": "Q3",
-      "focus": "Vertical proof and conversion reliability",
+      "focus": "Industry examples and reliable pilot conversion",
       "items": [
         "Deepen Web3 and enterprise modernization case studies",
-        "Standardize pilot-to-production conversion framework",
+        "Standardize how pilots become annual contracts",
         "Expand partner co-marketing and joint distribution",
         "Ship planning-agent focused content and demos"
       ]
     },
     {
       "quarter": "Q4",
-      "focus": "Enterprise repeatability and expansion",
+      "focus": "Repeatable enterprise sales and expansion",
       "items": [
         "Close two additional annual contracts",
-        "Codify repeatable GTM operating playbook",
+        "Document the repeatable sales process",
         "Systematize feedback loops into product priorities",
         "Publish year-end outcomes and year-two assumptions"
       ]

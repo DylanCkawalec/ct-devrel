@@ -12,7 +12,7 @@
     },
     {
       "name": "partner_integrations",
-      "description": "New validated ecosystem integrations.",
+      "description": "New working integrations with partner or open-source tools.",
       "input_source": "Partnership and engineering tracker",
       "calculation_method": "Count of integration releases",
       "update_cadence": "Bi-weekly",
@@ -22,9 +22,9 @@
     },
     {
       "name": "activated_builders",
-      "description": "Builders completing first meaningful workflow with CoreThink stack.",
+      "description": "Builders completing their first useful workflow with CoreThink.",
       "input_source": "Product analytics and onboarding events",
-      "calculation_method": "Unique builders reaching activation criteria",
+      "calculation_method": "Count unique builders who complete the agreed first-use action",
       "update_cadence": "Weekly",
       "target_by_quarter": { "Q1": 40, "Q2": 80, "Q3": 130, "Q4": 150 },
       "responsible_owner": "DevRel + Growth Engineering",
@@ -52,12 +52,12 @@
     },
     {
       "name": "pipeline_influenced",
-      "description": "Total pipeline value influenced by DevRel, partnerships, and content motions.",
+      "description": "Total value of sales opportunities influenced by developer relations, partnerships, and content.",
       "input_source": "CRM campaign attribution",
-      "calculation_method": "Sum of opportunity value with qualified influence touchpoints",
+      "calculation_method": "Sum opportunity value where content, partnerships, or demos helped create the opportunity",
       "update_cadence": "Monthly",
       "target_by_quarter": { "Q1": 50000, "Q2": 175000, "Q3": 325000, "Q4": 550000 },
-      "responsible_owner": "GTM Operations",
+      "responsible_owner": "Sales Operations",
       "ui_component": "MetricsDashboard"
     },
     {
@@ -94,19 +94,19 @@
     },
     {
       "name": "cumulative_bookings",
-      "description": "Cumulative booked revenue across pilots and annual contracts.",
+      "description": "Signed contract value across pilots and annual contracts.",
       "input_source": "Finance and CRM closed-won records",
-      "calculation_method": "Cumulative sum of booked deals",
+      "calculation_method": "Cumulative sum of signed pilot and annual contract values",
       "update_cadence": "Monthly",
       "target_by_quarter": { "Q1": 25000, "Q2": 165000, "Q3": 305000, "Q4": 510000 },
-      "responsible_owner": "Finance + GTM",
+      "responsible_owner": "Finance + Sales",
       "ui_component": "MetricsDashboard"
     },
     {
       "name": "logo_retention",
-      "description": "Cumulative paying logo retention trend.",
+      "description": "Share of paying customers that stay active.",
       "input_source": "Customer success health records",
-      "calculation_method": "Retained logos / prior cumulative logos",
+      "calculation_method": "Retained paying customers / prior paying customers",
       "update_cadence": "Quarterly",
       "target_by_quarter": { "Q1": 1, "Q2": 0.95, "Q3": 0.95, "Q4": 0.96 },
       "responsible_owner": "Customer Success",
@@ -114,7 +114,7 @@
     },
     {
       "name": "expansion_pipeline",
-      "description": "Expansion opportunities from existing logos.",
+      "description": "Expansion opportunities from existing customers.",
       "input_source": "CRM opportunity table",
       "calculation_method": "Count of open expansion opportunities",
       "update_cadence": "Monthly",

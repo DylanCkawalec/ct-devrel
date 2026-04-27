@@ -1,4 +1,5 @@
 import { entities, systemTree } from '../lib/data'
+import { useComprehensionCue } from '../lib/useComprehensionCue'
 
 const priorityOrder: Record<string, number> = { High: 0, Medium: 1, Low: 2 }
 const typeOrder: Record<string, number> = {
@@ -15,9 +16,9 @@ const branchPurpose: Record<string, string> = {
   'branch-strategy': 'Start here: the thesis, the product wedge, and why CoreThink matters.',
   'branch-segments': 'Who the proposal is aimed at before money or channels are discussed.',
   'branch-pricing': 'How interest becomes paid pilots, then annual contracts.',
-  'branch-acquisition': 'Where those customers come from and what motions create demand.',
+  'branch-acquisition': 'Where customers come from and what work creates demand.',
   'branch-roadmap': 'What gets built and shipped to make the plan credible.',
-  'branch-growth': 'How the first-year customer and bookings targets are counted.',
+  'branch-growth': 'How the first-year customer and signed revenue targets are counted.',
   'branch-metrics': 'Which signals show whether execution is working.',
   'branch-budget': 'What resources support the role and execution plan.',
   'branch-deliverable-entities': 'Appendix: the connected entities behind the proposal.',
@@ -45,24 +46,18 @@ const orderedBranches = proposalFlow
 const readable = (value: string) => value.replaceAll('-', ' ')
 
 export function SystemTreeViewer() {
+  const { cue, cueClass } = useComprehensionCue()
+
   return (
     <section className="card">
       <h2>Proposal Structure</h2>
       <p className="muted">
-        This page summarizes how the proposal fits together: the market thesis, target customers,
-        pricing model, demand plan, execution work, growth targets, proof metrics, and resource ask.
-        It is meant to give an executive reviewer the full logic of the plan at a glance.
+        Market thesis, target customers, pricing model, demand plan, execution work, growth targets,
+        success metrics, and resource ask.
       </p>
-      <div className="tree-read-path" aria-label="Proposal reading order">
-        {orderedBranches.slice(0, 8).map((step) => (
-          <div key={step.id} className={`tree-path-step ${step.tone}`}>
-            <strong>{step.phase}</strong>
-            <span>{step.label}</span>
-          </div>
-        ))}
-      </div>
       <div className="system-tree-grid">
-        {orderedBranches.map((step) => {
+        {orderedBranches.map((step, index) => {
+          const nextStep = orderedBranches[index + 1] ?? orderedBranches[0]
           const branchEntities = step.branch.entity_ids
             .map((entityId) => entities.entities.find((item) => item.id === entityId))
             .filter((entity) => entity !== undefined)
@@ -74,7 +69,11 @@ export function SystemTreeViewer() {
             )
 
           return (
-            <article key={step.id} className={`tree-card tree-flow-card ${step.tone}`}>
+            <article
+              key={step.id}
+              className={cueClass(step.id, `tree-card tree-flow-card ${step.tone} cue-click`)}
+              onClick={() => cue(nextStep.id)}
+            >
               <div className="tree-card-head">
                 <div>
                   <span className="tree-step-number">{step.phase}</span>

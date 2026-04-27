@@ -1,23 +1,24 @@
 import { budget, strategy } from '../lib/data'
 import { money } from '../lib/format'
+import { useComprehensionCue } from '../lib/useComprehensionCue'
 
 const categoryEmoji: Record<string, string> = {
   Compensation: '👤',
   Operations: '🧭',
   Content: '✍️',
-  'Field GTM': '🤝',
+  'Field Sales': '🤝',
   Engineering: '🛠️',
   Partnerships: '📣',
 }
 
 const resourceDetails: Record<string, string[]> = {
   'salary-dylan': [
-    'Covers one owner for DevRel, growth engineering, partnerships, demos, and field feedback.',
+    'Covers one owner for developer relations, growth engineering, partnerships, demos, and field feedback.',
     'Assumes this person creates the technical proof while helping move pilots toward contracts.',
   ],
   'tooling-systems': [
     'Includes CRM, analytics, account tracking, email/domain tools, and reporting systems.',
-    'Used to measure meetings, pipeline, follow-up, and whether the plan is converting.',
+    'Used to measure meetings, sales opportunities, follow-up, and whether the plan is converting.',
   ],
   'content-production': [
     'Covers editing, design, diagrams, short videos, and polished technical guides.',
@@ -33,11 +34,12 @@ const resourceDetails: Record<string, string[]> = {
   ],
   'partner-campaign-support': [
     'Covers partner collateral, co-marketing support, and lightweight campaign materials.',
-    'Used to reach shared audiences through ecosystem partners and technical communities.',
+    'Used to reach shared audiences through partners and technical communities.',
   ],
 }
 
 export function BudgetBreakdown() {
+  const { cue, cueClass } = useComprehensionCue()
   const gap = budget.year_one_booking_target - budget.total_budget
 
   return (
@@ -49,13 +51,13 @@ export function BudgetBreakdown() {
         paid pilots and annual contracts.
       </p>
       <p className="role-note">
-        <strong>Role scope:</strong> DevRel + growth engineering + partnerships. The ask is not for
-        content alone; it is for a technical operator who can publish proof, run field demos, manage
-        feedback, and help build pipeline.
+        <strong>Role scope:</strong> developer relations + growth engineering + partnerships. The
+        ask is not for content alone; it is for a technical operator who can publish proof, run field
+        demos, manage feedback, and help build sales opportunities.
       </p>
       <div className="budget-grid">
         {budget.items.map((item) => (
-          <article key={item.id} className="budget-card">
+          <article key={item.id} className="budget-card cue-click" onClick={() => cue('budget-summary')}>
             <div className="budget-card-head">
               <span className="category-chip">
                 <span aria-hidden="true">{categoryEmoji[item.category] ?? '•'}</span> {item.category}
@@ -72,13 +74,13 @@ export function BudgetBreakdown() {
           </article>
         ))}
       </div>
-      <div className="grid three">
+      <div className={cueClass('budget-summary', 'grid three')}>
         <div className="metric metric-green">
           <span>Total Investment</span>
           <strong>{money(budget.total_budget)}</strong>
         </div>
         <div className="metric metric-green">
-          <span>Year-One Bookings Target</span>
+          <span>Year-One Signed Revenue Target</span>
           <strong>{money(budget.year_one_booking_target)}</strong>
         </div>
         <div className="metric metric-green">
@@ -86,7 +88,9 @@ export function BudgetBreakdown() {
           <strong>{money(gap)}</strong>
         </div>
       </div>
-      <p className="assumption">{strategy.disclaimer}</p>
+      <p className="assumption cue-click" onClick={() => cue('budget-summary')}>
+        {strategy.disclaimer}
+      </p>
     </section>
   )
 }

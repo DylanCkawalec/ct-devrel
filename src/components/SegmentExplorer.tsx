@@ -1,4 +1,5 @@
 import { customerSegments } from '../lib/data'
+import { useComprehensionCue } from '../lib/useComprehensionCue'
 
 const monthlyFocus = [
   {
@@ -6,7 +7,7 @@ const monthlyFocus = [
     title: 'Set the target list',
     segmentIds: ['local-first-agent-builders', 'bay-area-design-partners'],
     priority: 'High',
-    action: 'Score the first local-first builders and Bay Area design partners.',
+    action: 'Rank the first privacy-focused builders and Bay Area design partners.',
   },
   {
     month: 'Month 2',
@@ -45,28 +46,28 @@ const monthlyFocus = [
   },
   {
     month: 'Month 7',
-    title: 'Prove vertical use cases',
+    title: 'Prove industry-specific examples',
     segmentIds: ['smart-contract-auditors', 'enterprise-complex-codebases'],
     priority: 'High',
     action: 'Package web3/security and enterprise reasoning examples for buyers.',
   },
   {
     month: 'Month 8',
-    title: 'Build enterprise pipeline',
+    title: 'Build enterprise sales list',
     segmentIds: ['enterprise-complex-codebases', 'internal-ai-platform'],
     priority: 'High',
     action: 'Focus on platform teams, security review, and large-codebase planning.',
   },
   {
     month: 'Month 9',
-    title: 'Turn proof into repeatable sales material',
+    title: 'Turn results into sales material',
     segmentIds: ['legacy-modernization', 'planning-agent-builders'],
     priority: 'Medium',
     action: 'Create case notes, buyer FAQs, and repeatable pilot criteria.',
   },
   {
     month: 'Month 10',
-    title: 'Push production conversion',
+    title: 'Convert pilots into annual contracts',
     segmentIds: ['enterprise-complex-codebases', 'internal-ai-platform'],
     priority: 'High',
     action: 'Prioritize annual contracts over broad, low-signal activity.',
@@ -83,23 +84,27 @@ const monthlyFocus = [
     title: 'Review year-one result',
     segmentIds: ['bay-area-design-partners', 'enterprise-complex-codebases'],
     priority: 'High',
-    action: 'Compare pilots, contracts, customers, and bookings against the proposal.',
+    action: 'Compare pilots, contracts, customers, and signed revenue against the proposal.',
   },
 ]
 
 const getSegment = (id: string) => customerSegments.segments.find((segment) => segment.id === id)
 
 export function SegmentExplorer() {
+  const { cue, cueClass } = useComprehensionCue()
+
   return (
     <section className="card">
       <h2>Customer Focus Timeline</h2>
-      <p className="muted">
-        Month-by-month order for the target segments in the proposal. High-priority segments are
-        worked earlier and revisited when there is a clear conversion path.
-      </p>
       <div className="month-timeline">
-        {monthlyFocus.map((item) => (
-          <article key={item.month} className="timeline-card">
+        {monthlyFocus.map((item, index) => {
+          const nextItem = monthlyFocus[index + 1] ?? monthlyFocus[0]
+          return (
+          <article
+            key={item.month}
+            className={cueClass(item.month, 'timeline-card cue-click')}
+            onClick={() => cue(nextItem.month)}
+          >
             <div className="timeline-head">
               <span className="month-label">{item.month}</span>
               <span
@@ -123,7 +128,8 @@ export function SegmentExplorer() {
               })}
             </div>
           </article>
-        ))}
+          )
+        })}
       </div>
     </section>
   )

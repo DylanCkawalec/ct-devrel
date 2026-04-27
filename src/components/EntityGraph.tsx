@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { entities } from '../lib/data'
+import { useComprehensionCue } from '../lib/useComprehensionCue'
 import type { StrategyEntity } from '../types'
 
 const priorityOrder: Record<string, number> = { High: 0, Medium: 1, Low: 2 }
@@ -29,21 +30,38 @@ const orderedEntities = [...entities.entities].sort(
 )
 
 const readable = (value: string) => value.replaceAll('-', ' ')
+const metricLabel: Record<string, string> = {
+  docs_shipped: 'docs shipped',
+  partner_integrations: 'partner integrations',
+  activated_builders: 'active builders',
+  qualified_opportunities: 'qualified sales opportunities',
+  partner_meetings: 'partner meetings',
+  pipeline_influenced: 'sales opportunities helped',
+  paid_pilots: 'paid pilots',
+  annual_contracts: 'annual contracts',
+  cumulative_bookings: 'signed revenue',
+  cumulative_paying_logos: 'paying customers',
+  demos_delivered: 'demos delivered',
+}
 
-const countBy = (items: StrategyEntity[], key: keyof Pick<StrategyEntity, 'priority' | 'status' | 'type'>) =>
-  items.reduce<Record<string, number>>((acc, item) => {
-    acc[item[key]] = (acc[item[key]] ?? 0) + 1
-    return acc
-  }, {})
-
-function ChipList({ title, items, tone }: { title: string; items: string[]; tone: string }) {
+function ChipList({
+  title,
+  items,
+  tone,
+  labelFor = readable,
+}: {
+  title: string
+  items: string[]
+  tone: string
+  labelFor?: (value: string) => string
+}) {
   return (
     <div className="entity-relation">
       <h4>{title}</h4>
       <div className="entity-chip-list">
         {items.map((item) => (
           <span key={item} className={`entity-chip ${tone}`}>
-            {readable(item)}
+            {labelFor(item)}
           </span>
         ))}
       </div>
@@ -51,9 +69,9 @@ function ChipList({ title, items, tone }: { title: string; items: string[]; tone
   )
 }
 
-function EntityDetail({ entity }: { entity: StrategyEntity }) {
+function EntityDetail({ entity, className = 'entity-detail-card' }: { entity: StrategyEntity; className?: string }) {
   return (
-    <article className="entity-detail-card">
+    <article className={className}>
       <div className="entity-detail-head">
         <div>
           <h3>{entity.title}</h3>
@@ -75,7 +93,12 @@ function EntityDetail({ entity }: { entity: StrategyEntity }) {
       </p>
       <div className="entity-relations-grid">
         <ChipList title="Pillars" items={entity.related_pillars} tone="chip-pillar" />
-        <ChipList title="Success measures" items={entity.related_metrics} tone="chip-metric" />
+        <ChipList
+          title="Success measures"
+          items={entity.related_metrics}
+          tone="chip-metric"
+          labelFor={(item) => metricLabel[item] ?? item.replaceAll('_', ' ')}
+        />
         <ChipList title="Routes to reach it" items={entity.related_channels} tone="chip-channel" />
         <ChipList title="Customer segments" items={entity.related_segments} tone="chip-segment" />
         <ChipList title="Timing" items={entity.related_quarters} tone="chip-quarter" />
@@ -85,61 +108,31 @@ function EntityDetail({ entity }: { entity: StrategyEntity }) {
 }
 
 export function EntityGraph() {
+  const { cue, cueClass } = useComprehensionCue()
   const [selected, setSelected] = useState<string>(orderedEntities[0]?.id ?? '')
 
   const selectedEntity = useMemo(
     () => entities.entities.find((entity) => entity.id === selected) ?? entities.entities[0],
     [selected],
   )
-  const priorityCounts = countBy(entities.entities, 'priority')
-  const statusCounts = countBy(entities.entities, 'status')
-  const typeCounts = countBy(entities.entities, 'type')
 
   return (
     <section className="card">
       <h2>Proposal Map</h2>
       <p className="muted">
-        This maps the proposal into related parts. Read the list from top to bottom: high-priority
-        items come first, then status, then type. Click an item to see what it affects.
+        The proposal map connects the strategy, customer segments, revenue stages, execution work,
+        success measures, and resource ask.
       </p>
-      <div className="entity-summary-grid">
-        <div className="entity-summary-card">
-          <h3>Priority order</h3>
-          <p>
-            <span className="entity-badge priority-high">High {priorityCounts.High ?? 0}</span>
-            <span className="entity-badge priority-medium">Medium {priorityCounts.Medium ?? 0}</span>
-          </p>
-        </div>
-        <div className="entity-summary-card">
-          <h3>Status order</h3>
-          <p>
-            {['Active', 'In Progress', 'Planned', 'Measured', 'Approved'].map((status) => (
-              <span key={status} className={`entity-badge status-${status.toLowerCase().replaceAll(' ', '-')}`}>
-                {status} {statusCounts[status] ?? 0}
-              </span>
-            ))}
-          </p>
-        </div>
-        <div className="entity-summary-card">
-          <h3>Type groups</h3>
-          <p>
-            {['strategy', 'integration', 'segment', 'revenue-stage', 'execution', 'metric', 'budget'].map(
-              (type) => (
-                <span key={type} className={`entity-badge type-${type}`}>
-                  {readable(type)} {typeCounts[type] ?? 0}
-                </span>
-              ),
-            )}
-          </p>
-        </div>
-      </div>
       <div className="entity-layout">
         <div className="entity-list">
           {orderedEntities.map((entity) => (
             <button
               key={entity.id}
               type="button"
-              onClick={() => setSelected(entity.id)}
+              onClick={() => {
+                setSelected(entity.id)
+                cue('entity-detail')
+              }}
               className={entity.id === selected ? 'entity-button active' : 'entity-button'}
             >
               <span>{entity.title}</span>
@@ -150,7 +143,7 @@ export function EntityGraph() {
             </button>
           ))}
         </div>
-        {selectedEntity ? <EntityDetail entity={selectedEntity} /> : null}
+        {selectedEntity ? <EntityDetail entity={selectedEntity} className={cueClass('entity-detail', 'entity-detail-card')} /> : null}
       </div>
     </section>
   )

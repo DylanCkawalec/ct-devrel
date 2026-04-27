@@ -2,27 +2,27 @@
   "segments": [
     {
       "id": "local-first-agent-builders",
-      "name": "Local-first agent builders",
+      "name": "Privacy-focused AI builders",
       "priority": "High",
-      "description": "Builders optimizing privacy, cost, and local control for agent workflows."
+      "description": "Builders who care about privacy, cost, and local control for AI workflows."
     },
     {
       "id": "agentic-coding-tools",
-      "name": "Agentic coding tools",
+      "name": "AI coding tool teams",
       "priority": "High",
-      "description": "Tool teams integrating structured planning and reasoning into coding loops."
+      "description": "Tool teams adding better planning and reasoning to coding workflows."
     },
     {
       "id": "smart-contract-auditors",
       "name": "Smart-contract auditors and Web3 security firms",
       "priority": "Medium",
-      "description": "Security-led teams needing explainable reasoning and robust control surfaces."
+      "description": "Security teams that need clear reasoning and strong controls."
     },
     {
       "id": "digital-asset-infra",
       "name": "Digital-asset infrastructure companies",
       "priority": "Medium",
-      "description": "Infra operators with strong security and reliability requirements."
+      "description": "Infrastructure operators with strong security and reliability requirements."
     },
     {
       "id": "enterprise-complex-codebases",
@@ -44,21 +44,21 @@
     },
     {
       "id": "security-conscious-smb",
-      "name": "Security-conscious SaaS and fintech-adjacent SMBs",
+      "name": "Security-focused SaaS and fintech-adjacent small businesses",
       "priority": "High",
-      "description": "SMBs seeking better economics and stronger security posture in AI workflows."
+      "description": "Small businesses seeking lower AI costs and stronger security."
     },
     {
       "id": "bay-area-design-partners",
       "name": "Bay Area design partners",
       "priority": "High",
-      "description": "Dense local network of high-feedback, high-velocity design partners."
+      "description": "Local companies that can give fast feedback and test early pilots."
     },
     {
       "id": "planning-agent-builders",
-      "name": "Planning-agent builders",
+      "name": "Planning AI builders",
       "priority": "Medium",
-      "description": "Teams focused on decomposition, critique, and planner-executor reliability."
+      "description": "Teams focused on breaking work into steps, checking results, and improving reliability."
     }
   ]
 }

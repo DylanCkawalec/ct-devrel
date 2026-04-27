@@ -1,5 +1,6 @@
 import { quarterlyProjections } from '../lib/data'
 import { money } from '../lib/format'
+import { useComprehensionCue } from '../lib/useComprehensionCue'
 
 const quarterPeriods: Record<string, string> = {
   Q1: 'May-Jul 2026',
@@ -9,28 +10,37 @@ const quarterPeriods: Record<string, string> = {
 }
 
 export function CustomerGrowthTimeline() {
+  const { cue, cueClass } = useComprehensionCue()
+
   return (
     <section className="card">
       <h2>Customer Growth by Quarter</h2>
       <p className="muted">
-        This starts in <strong>May 2026</strong>. The numbers assume a focused ICP: software-heavy
-        SMB and mid-market teams, often <strong>10-50 person technical teams</strong>, plus larger
-        enterprise platform or security groups when there is a clear pilot path.
+        This starts in <strong>May 2026</strong>. The numbers assume a focused target customer
+        profile: software-heavy small and mid-sized companies, often{' '}
+        <strong>10-50 person technical teams</strong>, plus larger platform or security teams when
+        there is a clear pilot path.
       </p>
       <div className="timeline">
-        {quarterlyProjections.quarters.map((quarter) => (
-          <article key={quarter.id} className="subcard">
+        {quarterlyProjections.quarters.map((quarter, index) => {
+          const nextQuarter = quarterlyProjections.quarters[index + 1]
+          return (
+          <article
+            key={quarter.id}
+            className={cueClass(quarter.id, 'subcard cue-click')}
+            onClick={() => cue(nextQuarter?.id ?? 'target-note')}
+          >
             <h3>
               {quarter.id} <span className="quarter-period">{quarterPeriods[quarter.id]}</span>
             </h3>
             <p className="muted">{quarter.objective}</p>
             <dl className="growth-metrics">
               <div>
-                <dt className="growth-label growth-orange">Reached builders:</dt>
+                <dt className="growth-label growth-orange">Active builders to date:</dt>
                 <dd>{quarter.activated_builders}</dd>
               </div>
               <div>
-                <dt className="growth-label growth-red">Qualified opportunities:</dt>
+                <dt className="growth-label growth-red">Qualified sales opportunities to date:</dt>
                 <dd>{quarter.qualified_opportunities}</dd>
               </div>
               <div>
@@ -46,24 +56,27 @@ export function CustomerGrowthTimeline() {
                 <dd>{quarter.cumulative_paying_logos}</dd>
               </div>
               <div>
-                <dt className="growth-label growth-pink">Bookings to date:</dt>
+                <dt className="growth-label growth-pink">Signed revenue to date:</dt>
                 <dd>{money(quarter.cumulative_bookings)}</dd>
               </div>
             </dl>
           </article>
-        ))}
+          )
+        })}
       </div>
-      <p className="target-note">
-        Target examples used to size the plan include local-first builder ecosystems such as
+      <p className={cueClass('target-note', 'target-note')}>
+        Target examples used to size the plan include developer tool communities such as
         <strong> Ollama</strong>, <strong>Continue</strong>, <strong>Cline</strong>,
         <strong> Roo Code</strong>, <strong>Aider</strong>, <strong>OpenHands</strong>,
         <strong> LM Studio</strong>, and <strong>vLLM</strong>; security and audit teams such as
         <strong> OpenZeppelin</strong>, <strong>Trail of Bits</strong>, <strong>CertiK</strong>,
         <strong> Quantstamp</strong>, <strong>Spearbit</strong>, and <strong>Halborn</strong>; and
         enterprise teams working on large-codebase planning, modernization, or internal AI
-        platforms. These are target-universe examples, not claimed customers.
+        platforms. These are examples of the kinds of companies to target, not claimed customers.
       </p>
-      <p className="assumption">{quarterlyProjections.disclaimer}</p>
+      <p className="assumption cue-click" onClick={() => cue('Q1')}>
+        {quarterlyProjections.disclaimer}
+      </p>
     </section>
   )
 }

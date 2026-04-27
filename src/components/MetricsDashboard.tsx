@@ -1,4 +1,5 @@
 import { metrics } from '../lib/data'
+import { useComprehensionCue } from '../lib/useComprehensionCue'
 
 type MetricItem = (typeof metrics.leading)[number]
 type CadenceGroup = {
@@ -27,7 +28,7 @@ const cadenceOrder: Array<Omit<CadenceGroup, 'items'>> = [
   {
     cadence: 'Monthly',
     title: 'Monthly business review',
-    description: 'Revenue, pilots, contracts, and pipeline movement.',
+    description: 'Revenue, pilots, contracts, and sales opportunity movement.',
     className: 'cadence-white',
   },
   {
@@ -38,16 +39,39 @@ const cadenceOrder: Array<Omit<CadenceGroup, 'items'>> = [
   },
 ]
 
-const readableName = (name: string) => name.replaceAll('_', ' ')
+const metricLabel: Record<string, string> = {
+  docs_shipped: 'docs shipped',
+  partner_integrations: 'partner integrations',
+  activated_builders: 'active builders',
+  partner_meetings: 'partner meetings',
+  demos_delivered: 'demos delivered',
+  pipeline_influenced: 'sales opportunities helped',
+  product_feedback_loops: 'product feedback loops',
+  paid_pilots: 'paid pilots',
+  annual_contracts: 'annual contracts',
+  cumulative_bookings: 'signed revenue',
+  logo_retention: 'paying customer retention',
+  expansion_pipeline: 'expansion opportunities',
+}
+
+const readableName = (name: string) => metricLabel[name] ?? name.replaceAll('_', ' ')
 
 const cadenceGroups: CadenceGroup[] = cadenceOrder.map((group) => ({
   ...group,
   items: allMetrics.filter((item) => item.update_cadence === group.cadence),
 }))
 
-function MetricGroup({ group }: { group: CadenceGroup }) {
+function MetricGroup({
+  group,
+  className,
+  onClick,
+}: {
+  group: CadenceGroup
+  className: string
+  onClick: () => void
+}) {
   return (
-    <article className={`cadence-card ${group.className}`}>
+    <article className={className} onClick={onClick}>
       <div className="cadence-card-head">
         <span>{group.cadence}</span>
         <h3>{group.title}</h3>
@@ -70,6 +94,8 @@ function MetricGroup({ group }: { group: CadenceGroup }) {
 }
 
 export function MetricsDashboard() {
+  const { cue, cueClass } = useComprehensionCue()
+
   return (
     <section className="card">
       <h2>Success Metrics</h2>
@@ -78,14 +104,22 @@ export function MetricsDashboard() {
         converting.
       </p>
       <p className="owner-note">
-        <strong>Primary owner:</strong> DevRel / growth lead. Recommended support: partnerships for
-        meetings and integrations, sales for pilots and annual contracts, finance for bookings, and
-        customer success for retention.
+        <strong>Primary owner:</strong> developer relations / growth lead. Recommended support:
+        partnerships for meetings and integrations, sales for pilots and annual contracts, finance
+        for signed revenue, and customer success for retention.
       </p>
       <div className="cadence-grid">
-        {cadenceGroups.map((group) => (
-          <MetricGroup key={group.cadence} group={group} />
-        ))}
+        {cadenceGroups.map((group, index) => {
+          const nextGroup = cadenceGroups[index + 1] ?? cadenceGroups[0]
+          return (
+            <MetricGroup
+              key={group.cadence}
+              group={group}
+              className={cueClass(group.cadence, `cadence-card ${group.className} cue-click`)}
+              onClick={() => cue(nextGroup.cadence)}
+            />
+          )
+        })}
       </div>
     </section>
   )
