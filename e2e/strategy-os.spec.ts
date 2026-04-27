@@ -58,7 +58,7 @@ test.describe('CoreThink strategy (static data in UI)', () => {
   test('metrics page shows metric definitions from data', async ({ page }) => {
     await openPlan(page)
     await page.goto('/#/metrics')
-    await expect(page.getByText('docs_shipped', { exact: false }).first()).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'docs shipped' })).toBeVisible()
     await expect(page.getByText('Published technical docs', { exact: false })).toBeVisible()
   })
 
