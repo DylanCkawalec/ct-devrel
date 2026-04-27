@@ -12,18 +12,36 @@ const typeOrder: Record<string, number> = {
 }
 
 const branchPurpose: Record<string, string> = {
-  'branch-strategy': 'How the proposal is positioned.',
-  'branch-pricing': 'How interest turns into paid pilots and contracts.',
-  'branch-acquisition': 'Where prospects come from and how they are reached.',
-  'branch-segments': 'Which customer groups matter first.',
-  'branch-growth': 'How the year-one numbers are measured.',
-  'branch-metrics': 'Which signals prove the plan is working.',
-  'branch-budget': 'Which resources support execution.',
-  'branch-roadmap': 'What gets built and shipped over time.',
-  'branch-deliverable-entities': 'The core entities that connect the whole proposal.',
+  'branch-strategy': 'Start here: the thesis, the product wedge, and why CoreThink matters.',
+  'branch-segments': 'Who the proposal is aimed at before money or channels are discussed.',
+  'branch-pricing': 'How interest becomes paid pilots, then annual contracts.',
+  'branch-acquisition': 'Where those customers come from and what motions create demand.',
+  'branch-roadmap': 'What gets built and shipped to make the plan credible.',
+  'branch-growth': 'How the first-year customer and bookings targets are counted.',
+  'branch-metrics': 'Which signals show whether execution is working.',
+  'branch-budget': 'What resources support the role and execution plan.',
+  'branch-deliverable-entities': 'Appendix: the connected entities behind the proposal.',
 }
 
-const orderedBranches = [...systemTree.branches].sort((a, b) => a.name.localeCompare(b.name))
+const proposalFlow = [
+  { id: 'branch-strategy', phase: '1', label: 'Thesis', tone: 'tree-flow-blue' },
+  { id: 'branch-segments', phase: '2', label: 'Customer', tone: 'tree-flow-violet' },
+  { id: 'branch-pricing', phase: '3', label: 'Commercial', tone: 'tree-flow-green' },
+  { id: 'branch-acquisition', phase: '4', label: 'Demand', tone: 'tree-flow-amber' },
+  { id: 'branch-roadmap', phase: '5', label: 'Execution', tone: 'tree-flow-cyan' },
+  { id: 'branch-growth', phase: '6', label: 'Targets', tone: 'tree-flow-pink' },
+  { id: 'branch-metrics', phase: '7', label: 'Proof', tone: 'tree-flow-lime' },
+  { id: 'branch-budget', phase: '8', label: 'Resources', tone: 'tree-flow-white' },
+  { id: 'branch-deliverable-entities', phase: 'Appendix', label: 'Map', tone: 'tree-flow-gray' },
+]
+
+const branchById = new Map(systemTree.branches.map((branch) => [branch.id, branch]))
+const orderedBranches = proposalFlow
+  .map((step) => {
+    const branch = branchById.get(step.id)
+    return branch ? { ...step, branch } : null
+  })
+  .filter((step) => step !== null)
 const readable = (value: string) => value.replaceAll('-', ' ')
 
 export function SystemTreeViewer() {
@@ -31,12 +49,21 @@ export function SystemTreeViewer() {
     <section className="card">
       <h2>Proposal Structure</h2>
       <p className="muted">
-        Root: <strong>{systemTree.root.name}</strong>. Each card groups related parts of the
-        proposal. Items inside each card are ordered by priority first, then type.
+        Read this from <strong>1 → 8</strong>. It is the order a reviewer should follow:
+        understand the thesis, then the customer, then pricing, demand, execution, targets, proof,
+        and resources.
       </p>
+      <div className="tree-read-path" aria-label="Proposal reading order">
+        {orderedBranches.slice(0, 8).map((step) => (
+          <div key={step.id} className={`tree-path-step ${step.tone}`}>
+            <strong>{step.phase}</strong>
+            <span>{step.label}</span>
+          </div>
+        ))}
+      </div>
       <div className="system-tree-grid">
-        {orderedBranches.map((branch) => {
-          const branchEntities = branch.entity_ids
+        {orderedBranches.map((step) => {
+          const branchEntities = step.branch.entity_ids
             .map((entityId) => entities.entities.find((item) => item.id === entityId))
             .filter((entity) => entity !== undefined)
             .sort(
@@ -47,19 +74,22 @@ export function SystemTreeViewer() {
             )
 
           return (
-            <article key={branch.id} className="tree-card">
+            <article key={step.id} className={`tree-card tree-flow-card ${step.tone}`}>
               <div className="tree-card-head">
-                <h3>{branch.name}</h3>
+                <div>
+                  <span className="tree-step-number">{step.phase}</span>
+                  <h3>{step.branch.name}</h3>
+                </div>
                 <span>{branchEntities.length} items</span>
               </div>
-              <p className="muted">{branchPurpose[branch.id] ?? 'Related proposal items.'}</p>
+              <p className="muted">{branchPurpose[step.id] ?? 'Related proposal items.'}</p>
               <div className="tree-entity-list">
                 {branchEntities.map((entity) => (
                   <div key={entity.id} className="tree-entity-row">
                     <span className={`entity-dot priority-dot-${entity.priority.toLowerCase()}`} />
-                    <div>
-                      <strong>{entity.title}</strong>
-                      <small>
+                    <div className="tree-entity-copy">
+                      <strong className="tree-entity-title">{entity.title}</strong>
+                      <small className="tree-entity-meta">
                         {entity.priority} · {readable(entity.type)} · {entity.status}
                       </small>
                     </div>

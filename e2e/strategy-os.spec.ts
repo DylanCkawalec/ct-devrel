@@ -79,7 +79,7 @@ test.describe('CoreThink strategy (static data in UI)', () => {
   test('system tree shows root and branches from data', async ({ page }) => {
     await openPlan(page)
     await page.goto('/#/system-tree')
-    await expect(page.getByText('CoreThink DevRel/Growth Projection Plan', { exact: false })).toBeVisible()
+    await expect(page.getByText('Read this from', { exact: false })).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Customer Acquisition' })).toBeVisible()
   })
 
