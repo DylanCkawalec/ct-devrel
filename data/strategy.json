@@ -1,0 +1,44 @@
+{
+  "id": "corethink-hybrid-strategy",
+  "title": "CoreThink Hybrid Strategy",
+  "thesis": "Use local models for routine work and CoreThink for harder planning, security, and debugging work.",
+  "request": "Can you share a projections plan as well, that includes pricing, customer acquisition channels, and customer growth over time?",
+  "answer": "This plan shows pricing, customer channels, quarterly targets, budget, and the metrics to track.",
+  "one_year_projection": {
+    "activated_builders": 400,
+    "qualified_opportunities": 35,
+    "paid_pilots": 6,
+    "annual_contracts": 4,
+    "cumulative_paying_logos": 10,
+    "cumulative_bookings": 510000
+  },
+  "investment": {
+    "salary": 200000,
+    "gtm_and_tooling_budget": 50000,
+    "total_investment": 250000
+  },
+  "pillars": [
+    "Domain-specific languages",
+    "Improved coding",
+    "Improved cybersecurity",
+    "Improved planning"
+  ],
+  "hybrid_layers": [
+    {
+      "id": "layer-local-default",
+      "name": "Routine local work",
+      "description": "Run frequent, lower-risk work on local models to keep cost down and protect privacy."
+    },
+    {
+      "id": "layer-corethink-escalation",
+      "name": "CoreThink for hard problems",
+      "description": "Use CoreThink when the work needs deeper planning, debugging, security review, or synthesis."
+    },
+    {
+      "id": "layer-governed-execution",
+      "name": "Memory and controls",
+      "description": "Keep history, review steps, and permissions visible so work stays clear and secure."
+    }
+  ],
+  "disclaimer": "All projections are planning assumptions, not guaranteed performance."
+}

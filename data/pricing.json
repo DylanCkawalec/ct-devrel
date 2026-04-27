@@ -1,0 +1,51 @@
+{
+  "tiers": [
+    {
+      "id": "community-entry",
+      "name": "Community Entry",
+      "price_range": "Free",
+      "duration": "Always-on",
+      "purpose": "Top-of-funnel adoption, trust, and ecosystem credibility.",
+      "includes": [
+        "Free docs",
+        "Starter repos",
+        "Demos",
+        "Tutorials",
+        "Benchmark cookbooks"
+      ],
+      "conversion_goal": "Convert activated builders into qualified opportunities"
+    },
+    {
+      "id": "design-partner-pilot",
+      "name": "Design-Partner Pilot",
+      "price_range": "$20,000-$30,000",
+      "duration": "6-8 weeks",
+      "purpose": "Validate use case, collect product feedback, and prove business ROI.",
+      "includes": [
+        "Joint success criteria",
+        "Pilot implementation support",
+        "Weekly technical reviews",
+        "Outcome and conversion recommendation"
+      ],
+      "conversion_goal": "Convert validated pilots into annual contracts"
+    },
+    {
+      "id": "annual-production-contract",
+      "name": "Production Annual Contract",
+      "price_range": "$75,000-$150,000 + usage",
+      "duration": "12 months",
+      "purpose": "Turn validated pilot workflows into repeatable annual revenue.",
+      "includes": [
+        "Production deployment support",
+        "Quarterly roadmap alignment",
+        "Security and governance patterns",
+        "Expansion pathways by use case"
+      ],
+      "conversion_goal": "Drive renewal, expansion, and referenceable logos"
+    }
+  ],
+  "notes": [
+    "Pricing ranges are assumptions for planning and should be validated per segment.",
+    "Enterprise agreements may include security and compliance add-ons."
+  ]
+}

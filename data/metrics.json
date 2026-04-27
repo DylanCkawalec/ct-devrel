@@ -1,0 +1,126 @@
+{
+  "leading": [
+    {
+      "name": "docs_shipped",
+      "description": "Published technical docs, guides, and benchmark explainers.",
+      "input_source": "Content tracker",
+      "calculation_method": "Count of published artifacts per quarter",
+      "update_cadence": "Weekly",
+      "target_by_quarter": { "Q1": 8, "Q2": 12, "Q3": 10, "Q4": 10 },
+      "responsible_owner": "DevRel Lead",
+      "ui_component": "MetricsDashboard"
+    },
+    {
+      "name": "partner_integrations",
+      "description": "New validated ecosystem integrations.",
+      "input_source": "Partnership and engineering tracker",
+      "calculation_method": "Count of integration releases",
+      "update_cadence": "Bi-weekly",
+      "target_by_quarter": { "Q1": 2, "Q2": 3, "Q3": 3, "Q4": 2 },
+      "responsible_owner": "Growth Engineering",
+      "ui_component": "MetricsDashboard"
+    },
+    {
+      "name": "activated_builders",
+      "description": "Builders completing first meaningful workflow with CoreThink stack.",
+      "input_source": "Product analytics and onboarding events",
+      "calculation_method": "Unique builders reaching activation criteria",
+      "update_cadence": "Weekly",
+      "target_by_quarter": { "Q1": 40, "Q2": 80, "Q3": 130, "Q4": 150 },
+      "responsible_owner": "DevRel + Growth Engineering",
+      "ui_component": "MetricsDashboard"
+    },
+    {
+      "name": "partner_meetings",
+      "description": "Qualified partnership and design-partner meetings.",
+      "input_source": "CRM activity logs",
+      "calculation_method": "Count of meetings with qualified accounts",
+      "update_cadence": "Weekly",
+      "target_by_quarter": { "Q1": 12, "Q2": 16, "Q3": 14, "Q4": 14 },
+      "responsible_owner": "Partnerships Lead",
+      "ui_component": "MetricsDashboard"
+    },
+    {
+      "name": "demos_delivered",
+      "description": "Live technical benchmark and workflow demos delivered.",
+      "input_source": "Event and sales engineering calendar",
+      "calculation_method": "Count of completed demos",
+      "update_cadence": "Weekly",
+      "target_by_quarter": { "Q1": 6, "Q2": 8, "Q3": 8, "Q4": 10 },
+      "responsible_owner": "DevRel + Sales Engineering",
+      "ui_component": "MetricsDashboard"
+    },
+    {
+      "name": "pipeline_influenced",
+      "description": "Total pipeline value influenced by DevRel, partnerships, and content motions.",
+      "input_source": "CRM campaign attribution",
+      "calculation_method": "Sum of opportunity value with qualified influence touchpoints",
+      "update_cadence": "Monthly",
+      "target_by_quarter": { "Q1": 50000, "Q2": 175000, "Q3": 325000, "Q4": 550000 },
+      "responsible_owner": "GTM Operations",
+      "ui_component": "MetricsDashboard"
+    },
+    {
+      "name": "product_feedback_loops",
+      "description": "Structured insights fed into roadmap from customers and builders.",
+      "input_source": "Product feedback tracker",
+      "calculation_method": "Count of accepted feedback items with linked owner and pillar",
+      "update_cadence": "Bi-weekly",
+      "target_by_quarter": { "Q1": 8, "Q2": 10, "Q3": 10, "Q4": 12 },
+      "responsible_owner": "Product + DevRel",
+      "ui_component": "MetricsDashboard"
+    }
+  ],
+  "lagging": [
+    {
+      "name": "paid_pilots",
+      "description": "New paid pilot engagements launched.",
+      "input_source": "Signed pilot agreements",
+      "calculation_method": "Count of net-new pilots signed",
+      "update_cadence": "Monthly",
+      "target_by_quarter": { "Q1": 1, "Q2": 2, "Q3": 2, "Q4": 1 },
+      "responsible_owner": "Partnerships + Sales",
+      "ui_component": "MetricsDashboard"
+    },
+    {
+      "name": "annual_contracts",
+      "description": "Net-new annual production contracts closed.",
+      "input_source": "Executed annual agreements",
+      "calculation_method": "Count of new annual contracts",
+      "update_cadence": "Monthly",
+      "target_by_quarter": { "Q1": 0, "Q2": 1, "Q3": 1, "Q4": 2 },
+      "responsible_owner": "Sales Leadership",
+      "ui_component": "MetricsDashboard"
+    },
+    {
+      "name": "cumulative_bookings",
+      "description": "Cumulative booked revenue across pilots and annual contracts.",
+      "input_source": "Finance and CRM closed-won records",
+      "calculation_method": "Cumulative sum of booked deals",
+      "update_cadence": "Monthly",
+      "target_by_quarter": { "Q1": 25000, "Q2": 165000, "Q3": 305000, "Q4": 510000 },
+      "responsible_owner": "Finance + GTM",
+      "ui_component": "MetricsDashboard"
+    },
+    {
+      "name": "logo_retention",
+      "description": "Cumulative paying logo retention trend.",
+      "input_source": "Customer success health records",
+      "calculation_method": "Retained logos / prior cumulative logos",
+      "update_cadence": "Quarterly",
+      "target_by_quarter": { "Q1": 1, "Q2": 0.95, "Q3": 0.95, "Q4": 0.96 },
+      "responsible_owner": "Customer Success",
+      "ui_component": "MetricsDashboard"
+    },
+    {
+      "name": "expansion_pipeline",
+      "description": "Expansion opportunities from existing logos.",
+      "input_source": "CRM opportunity table",
+      "calculation_method": "Count of open expansion opportunities",
+      "update_cadence": "Monthly",
+      "target_by_quarter": { "Q1": 1, "Q2": 2, "Q3": 3, "Q4": 4 },
+      "responsible_owner": "Account Management",
+      "ui_component": "MetricsDashboard"
+    }
+  ]
+}

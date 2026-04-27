@@ -1,0 +1,75 @@
+{
+  "root": {
+    "id": "root-corethink-plan",
+    "name": "CoreThink DevRel/Growth Projection Plan",
+    "type": "root"
+  },
+  "branches": [
+    {
+      "id": "branch-strategy",
+      "name": "Strategy",
+      "type": "branch",
+      "entity_ids": ["corethink-hybrid-strategy", "openclaw-integration", "developer-documentation"]
+    },
+    {
+      "id": "branch-pricing",
+      "name": "Pricing",
+      "type": "branch",
+      "entity_ids": ["design-partner-pilot", "annual-enterprise-contract"]
+    },
+    {
+      "id": "branch-acquisition",
+      "name": "Customer Acquisition",
+      "type": "branch",
+      "entity_ids": ["partner-outreach-motion", "bay-area-field-motion", "integration-tutorial"]
+    },
+    {
+      "id": "branch-segments",
+      "name": "Customer Segments",
+      "type": "branch",
+      "entity_ids": ["local-first-builder-segment", "web3-security-segment", "enterprise-reasoning-segment"]
+    },
+    {
+      "id": "branch-growth",
+      "name": "Customer Growth",
+      "type": "branch",
+      "entity_ids": ["activated-builder-metric", "qualified-opportunity-metric", "paid-pilot-metric", "production-contract-metric"]
+    },
+    {
+      "id": "branch-metrics",
+      "name": "Metrics",
+      "type": "branch",
+      "entity_ids": ["activated-builder-metric", "qualified-opportunity-metric", "paid-pilot-metric", "production-contract-metric"]
+    },
+    {
+      "id": "branch-budget",
+      "name": "Budget",
+      "type": "branch",
+      "entity_ids": ["tooling-budget", "content-budget", "events-budget", "demo-infrastructure-budget", "strategic-partnership-budget"]
+    },
+    {
+      "id": "branch-roadmap",
+      "name": "Roadmap",
+      "type": "branch",
+      "entity_ids": ["developer-documentation", "integration-tutorial", "partner-outreach-motion"]
+    },
+    {
+      "id": "branch-deliverable-entities",
+      "name": "Deliverable Entities",
+      "type": "branch",
+      "entity_ids": [
+        "corethink-hybrid-strategy",
+        "openclaw-integration",
+        "local-first-builder-segment",
+        "web3-security-segment",
+        "enterprise-reasoning-segment",
+        "design-partner-pilot",
+        "annual-enterprise-contract",
+        "developer-documentation",
+        "integration-tutorial",
+        "partner-outreach-motion",
+        "bay-area-field-motion"
+      ]
+    }
+  ]
+}

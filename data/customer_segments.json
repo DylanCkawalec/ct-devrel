@@ -1,0 +1,64 @@
+{
+  "segments": [
+    {
+      "id": "local-first-agent-builders",
+      "name": "Local-first agent builders",
+      "priority": "High",
+      "description": "Builders optimizing privacy, cost, and local control for agent workflows."
+    },
+    {
+      "id": "agentic-coding-tools",
+      "name": "Agentic coding tools",
+      "priority": "High",
+      "description": "Tool teams integrating structured planning and reasoning into coding loops."
+    },
+    {
+      "id": "smart-contract-auditors",
+      "name": "Smart-contract auditors and Web3 security firms",
+      "priority": "Medium",
+      "description": "Security-led teams needing explainable reasoning and robust control surfaces."
+    },
+    {
+      "id": "digital-asset-infra",
+      "name": "Digital-asset infrastructure companies",
+      "priority": "Medium",
+      "description": "Infra operators with strong security and reliability requirements."
+    },
+    {
+      "id": "enterprise-complex-codebases",
+      "name": "Enterprise teams managing complex codebases",
+      "priority": "High",
+      "description": "Enterprises requiring modernization planning and controlled implementation support."
+    },
+    {
+      "id": "legacy-modernization",
+      "name": "Legacy modernization teams",
+      "priority": "Medium",
+      "description": "Teams navigating core system upgrades and migration planning."
+    },
+    {
+      "id": "internal-ai-platform",
+      "name": "Internal AI platform teams",
+      "priority": "Medium",
+      "description": "Organizations creating governed internal model and tooling platforms."
+    },
+    {
+      "id": "security-conscious-smb",
+      "name": "Security-conscious SaaS and fintech-adjacent SMBs",
+      "priority": "High",
+      "description": "SMBs seeking better economics and stronger security posture in AI workflows."
+    },
+    {
+      "id": "bay-area-design-partners",
+      "name": "Bay Area design partners",
+      "priority": "High",
+      "description": "Dense local network of high-feedback, high-velocity design partners."
+    },
+    {
+      "id": "planning-agent-builders",
+      "name": "Planning-agent builders",
+      "priority": "Medium",
+      "description": "Teams focused on decomposition, critique, and planner-executor reliability."
+    }
+  ]
+}

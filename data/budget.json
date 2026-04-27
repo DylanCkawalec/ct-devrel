@@ -1,0 +1,49 @@
+{
+  "items": [
+    {
+      "id": "salary-dylan",
+      "name": "Dylan salary",
+      "category": "Compensation",
+      "amount": 200000,
+      "description": "Founding hybrid role spanning DevRel, growth engineering, and partnerships."
+    },
+    {
+      "id": "tooling-systems",
+      "name": "Tooling, CRM, analytics, and systems",
+      "category": "Operations",
+      "amount": 15000,
+      "description": "Systems required to track pipeline, execution, and measurement."
+    },
+    {
+      "id": "content-production",
+      "name": "Content production and design support",
+      "category": "Content",
+      "amount": 12000,
+      "description": "Editorial, design, and publishing support for guides and assets."
+    },
+    {
+      "id": "events-travel",
+      "name": "Bay Area events and travel",
+      "category": "Field GTM",
+      "amount": 10000,
+      "description": "Meetups, dinners, and design-partner field sessions."
+    },
+    {
+      "id": "demo-infrastructure",
+      "name": "Demo, sandbox, and benchmark infrastructure",
+      "category": "Engineering",
+      "amount": 8000,
+      "description": "Infrastructure for reproducible evaluations and demos."
+    },
+    {
+      "id": "partner-campaign-support",
+      "name": "Partner enablement and campaign support",
+      "category": "Partnerships",
+      "amount": 5000,
+      "description": "Partner collateral, campaign support, and enablement assets."
+    }
+  ],
+  "total_budget": 250000,
+  "year_one_booking_target": 510000,
+  "roi_multiple_assumption": 2.04
+}
