@@ -49,3 +49,6 @@ Thumbs.db
 .vercel
 .netlify
 *.pem
+
+# Large deliverables (keep strategy in markdown; restore PDFs from history if needed)
+docs/*.pdf
