@@ -844,6 +844,37 @@ ul {
   gap: 0.75rem;
 }
 
+.entity-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.7rem;
+  margin: 0.85rem 0;
+}
+
+.entity-summary-card,
+.entity-detail-card,
+.tree-card {
+  border: 1px solid #33476c;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(17, 31, 53, 0.96), rgba(13, 24, 40, 0.96));
+  padding: 0.85rem;
+}
+
+.entity-summary-card h3,
+.entity-detail-card h3,
+.tree-card h3 {
+  color: #f8fbff;
+  margin: 0;
+}
+
+.entity-summary-card p,
+.entity-badges,
+.entity-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
 .entity-list {
   display: flex;
   flex-direction: column;
@@ -860,11 +891,208 @@ ul {
   text-align: left;
   padding: 0.5rem 0.65rem;
   cursor: pointer;
+  display: grid;
+  gap: 0.25rem;
 }
 
 .entity-button.active {
   border-color: #6990d1;
   background: #1b2a42;
+}
+
+.entity-button span {
+  font-weight: 700;
+}
+
+.entity-button small,
+.tree-entity-row small {
+  color: #9fb2d4;
+}
+
+.entity-dot {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+}
+
+.priority-dot-high {
+  background: #34d399;
+}
+
+.priority-dot-medium {
+  background: #f59e0b;
+}
+
+.priority-dot-low {
+  background: #94a3b8;
+}
+
+.entity-detail-head,
+.tree-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.entity-badges {
+  justify-content: flex-end;
+}
+
+.entity-badge,
+.entity-chip,
+.tree-card-head span {
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.22rem 0.5rem;
+  text-transform: capitalize;
+}
+
+.priority-high {
+  border: 1px solid #34d399;
+  background: rgba(52, 211, 153, 0.14);
+  color: #d7fff0;
+}
+
+.priority-medium {
+  border: 1px solid #f59e0b;
+  background: rgba(245, 158, 11, 0.15);
+  color: #fff0c7;
+}
+
+.priority-low {
+  border: 1px solid #94a3b8;
+  background: rgba(148, 163, 184, 0.14);
+  color: #eef2f7;
+}
+
+.status-active {
+  border: 1px solid #38bdf8;
+  background: rgba(56, 189, 248, 0.14);
+  color: #dff7ff;
+}
+
+.status-in-progress {
+  border: 1px solid #60a5fa;
+  background: rgba(96, 165, 250, 0.14);
+  color: #dbeafe;
+}
+
+.status-planned {
+  border: 1px solid #c084fc;
+  background: rgba(192, 132, 252, 0.15);
+  color: #f4e7ff;
+}
+
+.status-measured {
+  border: 1px solid #bef264;
+  background: rgba(190, 242, 100, 0.12);
+  color: #f0ffd0;
+}
+
+.status-approved {
+  border: 1px solid #facc15;
+  background: rgba(250, 204, 21, 0.13);
+  color: #fff7c2;
+}
+
+.type-strategy,
+.type-integration,
+.type-segment,
+.type-revenue-stage,
+.type-execution,
+.type-metric,
+.type-budget {
+  border: 1px solid rgba(147, 197, 253, 0.36);
+  background: rgba(37, 99, 235, 0.14);
+  color: #dcecff;
+}
+
+.entity-owner-note {
+  margin: 0.75rem 0;
+}
+
+.entity-relations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.75rem;
+}
+
+.entity-relation {
+  border: 1px solid rgba(91, 111, 153, 0.42);
+  border-radius: 12px;
+  background: rgba(10, 19, 34, 0.45);
+  padding: 0.65rem;
+}
+
+.entity-relation h4 {
+  color: #f5f7fb;
+  margin: 0 0 0.45rem;
+}
+
+.chip-pillar {
+  border: 1px solid #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  color: #dff7ff;
+}
+
+.chip-metric {
+  border: 1px solid #bef264;
+  background: rgba(190, 242, 100, 0.12);
+  color: #f0ffd0;
+}
+
+.chip-channel {
+  border: 1px solid #f59e0b;
+  background: rgba(245, 158, 11, 0.13);
+  color: #fff0c7;
+}
+
+.chip-segment {
+  border: 1px solid #c084fc;
+  background: rgba(192, 132, 252, 0.14);
+  color: #f4e7ff;
+}
+
+.chip-quarter {
+  border: 1px solid #60a5fa;
+  background: rgba(96, 165, 250, 0.13);
+  color: #dbeafe;
+}
+
+.system-tree-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.85rem;
+  margin-top: 0.85rem;
+}
+
+.tree-card-head span {
+  border: 1px solid rgba(147, 197, 253, 0.34);
+  background: rgba(37, 99, 235, 0.16);
+  color: #dcecff;
+}
+
+.tree-entity-list {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+}
+
+.tree-entity-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem;
+  align-items: start;
+  border-top: 1px solid rgba(91, 111, 153, 0.34);
+  padding-top: 0.5rem;
+}
+
+.tree-entity-row strong {
+  color: #f8fbff;
 }
 
 .search-grid {
