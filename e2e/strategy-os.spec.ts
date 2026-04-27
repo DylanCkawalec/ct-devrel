@@ -79,7 +79,7 @@ test.describe('CoreThink strategy (static data in UI)', () => {
   test('system tree shows root and branches from data', async ({ page }) => {
     await openPlan(page)
     await page.goto('/#/system-tree')
-    await expect(page.getByText('Read this from', { exact: false })).toBeVisible()
+    await expect(page.getByText('This page summarizes how the proposal fits together', { exact: false })).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Customer Acquisition' })).toBeVisible()
   })
 
@@ -88,7 +88,9 @@ test.describe('CoreThink strategy (static data in UI)', () => {
     await page.goto('/#/search')
     await page.getByPlaceholder(/Search titles/).fill('Foundation and first design-partner proof')
     await expect(page.getByRole('heading', { name: 'Q1 Roadmap' })).toBeVisible()
-    await expect(page.getByText('Type: roadmap', { exact: false })).toBeVisible()
+    const result = page.locator('.search-result').filter({ hasText: 'Q1 Roadmap' })
+    await expect(result.getByText('Execution plan')).toBeVisible()
+    await expect(result.locator('.search-pill-type', { hasText: 'roadmap' })).toBeVisible()
   })
 
   test('landing shows logo and can enter the plan', async ({ page }) => {

@@ -1216,6 +1216,168 @@ ul {
   margin-bottom: 0.7rem;
 }
 
+.search-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(96, 165, 250, 0.28);
+  border-radius: 12px;
+  background: rgba(15, 27, 46, 0.72);
+  color: #cbd8ec;
+  margin-bottom: 0.85rem;
+  padding: 0.65rem 0.8rem;
+}
+
+.search-summary strong {
+  color: #f8fbff;
+}
+
+.search-results {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.search-result {
+  border: 1px solid #33476c;
+  border-left: 5px solid #60a5fa;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(17, 31, 53, 0.96), rgba(12, 22, 39, 0.96));
+  padding: 0.9rem;
+}
+
+.priority-result-high {
+  border-left-color: #34d399;
+}
+
+.priority-result-medium {
+  border-left-color: #f59e0b;
+}
+
+.priority-result-low {
+  border-left-color: #94a3b8;
+}
+
+.search-result-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.8rem;
+  align-items: start;
+}
+
+.search-result h3 {
+  color: #f8fbff;
+  margin: 0 0 0.3rem;
+}
+
+.search-purpose {
+  color: #b9c8df;
+  margin: 0;
+}
+
+.search-score {
+  border: 1px solid rgba(190, 242, 100, 0.34);
+  border-radius: 12px;
+  background: rgba(190, 242, 100, 0.1);
+  color: #eefec6;
+  display: grid;
+  justify-items: center;
+  min-width: 64px;
+  padding: 0.35rem 0.5rem;
+}
+
+.search-score span {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.search-score small {
+  color: #bfd0ac;
+}
+
+.search-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.55rem;
+}
+
+.search-pill {
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.22rem 0.5rem;
+  text-transform: capitalize;
+}
+
+.search-pill-tab {
+  border: 1px solid #38bdf8;
+  background: rgba(56, 189, 248, 0.13);
+  color: #dff7ff;
+}
+
+.search-pill-category {
+  border: 1px solid #c084fc;
+  background: rgba(192, 132, 252, 0.14);
+  color: #f4e7ff;
+}
+
+.search-pill-priority.priority-high {
+  border: 1px solid #34d399;
+  background: rgba(52, 211, 153, 0.14);
+  color: #d7fff0;
+}
+
+.search-pill-priority.priority-medium {
+  border: 1px solid #f59e0b;
+  background: rgba(245, 158, 11, 0.15);
+  color: #fff0c7;
+}
+
+.search-pill-priority.priority-low {
+  border: 1px solid #94a3b8;
+  background: rgba(148, 163, 184, 0.14);
+  color: #eef2f7;
+}
+
+.search-pill-type {
+  border: 1px solid rgba(147, 197, 253, 0.36);
+  background: rgba(37, 99, 235, 0.14);
+  color: #dcecff;
+}
+
+.search-pill-status {
+  border: 1px solid #facc15;
+  background: rgba(250, 204, 21, 0.13);
+  color: #fff7c2;
+}
+
+.search-pill-quarter {
+  border: 1px solid #60a5fa;
+  background: rgba(96, 165, 250, 0.13);
+  color: #dbeafe;
+}
+
+.search-pill-pillar {
+  border: 1px solid #22d3ee;
+  background: rgba(34, 211, 238, 0.12);
+  color: #ddfbff;
+}
+
+.search-pill-metric {
+  border: 1px solid #bef264;
+  background: rgba(190, 242, 100, 0.12);
+  color: #f0ffd0;
+}
+
+mark {
+  border-radius: 4px;
+  background: rgba(250, 204, 21, 0.28);
+  color: #fff8cf;
+  padding: 0 0.12rem;
+}
+
 input,
 select {
   border: 1px solid #36507a;
