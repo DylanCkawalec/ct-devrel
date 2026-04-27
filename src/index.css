@@ -529,6 +529,76 @@ ul {
   gap: 0.75rem;
 }
 
+.quarter-period {
+  display: block;
+  margin-top: 0.15rem;
+  color: #9fb2d4;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.growth-metrics {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0.75rem 0 0;
+}
+
+.growth-metrics div {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) auto;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.growth-metrics dt,
+.growth-metrics dd {
+  margin: 0;
+}
+
+.growth-metrics dd {
+  color: #f5f7fb;
+  font-weight: 700;
+  text-align: right;
+}
+
+.growth-label {
+  font-weight: 700;
+}
+
+.growth-orange {
+  color: #fb923c;
+}
+
+.growth-red {
+  color: #f87171;
+}
+
+.growth-green {
+  color: #4ade80;
+}
+
+.growth-light-green {
+  color: #bef264;
+}
+
+.growth-pink {
+  color: #f9a8d4;
+}
+
+.target-note {
+  border: 1px solid rgba(96, 165, 250, 0.25);
+  border-radius: 12px;
+  background: rgba(15, 27, 46, 0.78);
+  color: #cbd8ec;
+  line-height: 1.55;
+  margin: 1rem 0 0;
+  padding: 0.8rem;
+}
+
+.target-note strong {
+  color: #f5f7fb;
+}
+
 .month-timeline {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
