@@ -462,6 +462,57 @@ th {
   background: #172948;
 }
 
+.acquisition-table th,
+.acquisition-table td {
+  line-height: 1.45;
+}
+
+.acquisition-table strong {
+  color: #f8fbff;
+}
+
+.acquisition-table .col-channel {
+  background: rgba(56, 189, 248, 0.09);
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+.acquisition-table .col-audience {
+  background: rgba(52, 211, 153, 0.08);
+  border-color: rgba(52, 211, 153, 0.32);
+}
+
+.acquisition-table .col-action {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.32);
+}
+
+.acquisition-table .col-output {
+  background: rgba(168, 85, 247, 0.08);
+  border-color: rgba(168, 85, 247, 0.32);
+}
+
+.acquisition-table .col-metrics {
+  background: rgba(96, 165, 250, 0.07);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.metric-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.metric-tag {
+  border: 1px solid rgba(147, 197, 253, 0.45);
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.16);
+  color: #dcecff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.45rem;
+  text-transform: capitalize;
+}
+
 ul {
   margin: 0.4rem 0;
   padding-left: 1rem;
