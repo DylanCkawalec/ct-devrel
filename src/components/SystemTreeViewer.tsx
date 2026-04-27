@@ -49,9 +49,9 @@ export function SystemTreeViewer() {
     <section className="card">
       <h2>Proposal Structure</h2>
       <p className="muted">
-        Read this from <strong>1 → 8</strong>. It is the order a reviewer should follow:
-        understand the thesis, then the customer, then pricing, demand, execution, targets, proof,
-        and resources.
+        This page summarizes how the proposal fits together: the market thesis, target customers,
+        pricing model, demand plan, execution work, growth targets, proof metrics, and resource ask.
+        It is meant to give an executive reviewer the full logic of the plan at a glance.
       </p>
       <div className="tree-read-path" aria-label="Proposal reading order">
         {orderedBranches.slice(0, 8).map((step) => (
