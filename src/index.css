@@ -385,6 +385,11 @@ body {
   background: linear-gradient(135deg, rgba(168, 85, 247, 0.18), #12233e 65%);
 }
 
+.metric-green strong,
+.budget-amount {
+  color: #bef264;
+}
+
 .muted {
   color: #a4b4cf;
 }
@@ -521,6 +526,79 @@ ul {
 .price {
   font-weight: 700;
   color: #f5f7fb;
+}
+
+.role-note {
+  border: 1px solid rgba(52, 211, 153, 0.28);
+  border-radius: 12px;
+  background: rgba(16, 45, 35, 0.42);
+  color: #d9fbe8;
+  line-height: 1.55;
+  margin: 0.8rem 0 1rem;
+  padding: 0.8rem;
+}
+
+.role-note strong {
+  color: #f5fff8;
+}
+
+.budget-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.budget-card {
+  border: 1px solid rgba(96, 165, 250, 0.28);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(18, 35, 62, 0.95), rgba(12, 24, 42, 0.95));
+  padding: 0.9rem;
+}
+
+.budget-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.category-chip {
+  border: 1px solid rgba(147, 197, 253, 0.34);
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.16);
+  color: #e4efff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.25rem 0.55rem;
+}
+
+.budget-amount {
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.budget-card h3 {
+  color: #f8fbff;
+  font-size: 1rem;
+  margin: 0.75rem 0 0.35rem;
+}
+
+.budget-card p {
+  color: #cbd8ec;
+  margin: 0;
+}
+
+.budget-bullets {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.7rem;
+  color: #dce8ff;
+}
+
+.budget-bullets li::marker {
+  color: #bef264;
 }
 
 .timeline {
